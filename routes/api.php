@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('user', 'ApiController@getAuthenticatedUser');
 
     Route::get('barang', 'BarangController@index');
+    Route::resource('barang','BarangController');
 
 
  

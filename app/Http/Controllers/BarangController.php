@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use Validator;
+use Session;
+use Illuminate\Support\Facades\Input;
 
 class BarangController extends Controller
 {
@@ -40,7 +43,32 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+            'namabarang'          => 'required',
+            'jumlah'       => 'required',
+        );
+        $validator = Validator::make(Input::all(), $rules);
+        // process the login
+        if ($validator->fails()) {
+            return response()->json([
+                'message'  => 'Required input is missing',
+                'status' => 'error',
+            ],403);
+        } else {
+            $barang = new Barang();
+            
+            $barang->namabarang = $request->namabarang;
+            $barang->jumlah = $request->jumlah;
+            $barang->save();
+            $barangall = $barang->all();
+            return response()->json([
+                'message'  => 'Inserted!',
+                'status' => 'success',
+                'barang' => $barangall,
+            ],200);
+
+
+        }
     }
 
     /**

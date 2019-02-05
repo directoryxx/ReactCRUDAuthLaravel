@@ -135,7 +135,7 @@ class Page extends React.Component {
                                             </span>
                                         </div>
                                         <Input onChange={this.handleChange}
-                                        error={errors.has('email')} type="email" name="email" id="exampleEmail" placeholder="Email Address" />
+                                        error={errors.has('email')} type="email" name="email" id="exampleEmail" autoComplete="off" placeholder="Email Address" />
                                     
                                     </div>
                                         <center>
