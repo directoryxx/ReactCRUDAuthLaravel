@@ -103,7 +103,7 @@ class Page extends React.Component {
     };
     render() {
       //console.log(this.props.location.pathname);
-      console.log(localStorage.getItem('jwt_token'));
+      //console.log(localStorage.getItem('jwt_token'));
       return (
         <>
           

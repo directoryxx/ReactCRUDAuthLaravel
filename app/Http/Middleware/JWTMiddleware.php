@@ -29,6 +29,12 @@ class JWTMiddleware
                 return response()->json(['status' => 'Authorization Token not found']);
             }
         }
+        if ($request->getMethod() === "OPTIONS") {
+            return response()->json([
+                "error" => "something wrong",
+                "message" => "something wrong"
+            ], 401);
+        }
         return $next($request);
     }
 }

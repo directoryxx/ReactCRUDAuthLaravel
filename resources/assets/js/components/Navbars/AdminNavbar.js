@@ -35,8 +35,6 @@ class AdminNavbar extends React.Component {
   handleLogout() {
     event.preventDefault();
     this.props.dispatch(actions.authLogout());
-    this.props.history.push("/login");
-
   }
   
   componentDidMount() {
